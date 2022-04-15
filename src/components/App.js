@@ -3,6 +3,7 @@ import { signUpFormValidation } from "./validation";
 import React,{ useState } from "react";
 
 
+
 const App = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -97,11 +98,7 @@ const App = () => {
           onChange={handleChange}
         />
         <br />
-        {errors !== null && errors.email !== "" ? (
-          <span>{errors.email}</span>
-        ) : (
-          ""
-        )}
+        {errors !== null && errors.email !== "" ? <h1>{errors.email}</h1> : ""}
         <br />
         <br />
         <label htmlFor="gender">Gender: </label>
@@ -117,7 +114,7 @@ const App = () => {
         </select>
         <br />
         {errors !== null && errors.gender !== "" ? (
-          <span>{errors.gender}</span>
+          <h2>{errors.gender}</h2>
         ) : (
           ""
         )}
@@ -135,7 +132,7 @@ const App = () => {
         />
         <br />
         {errors !== null && errors.password !== "" ? (
-          <span>{errors.password}</span>
+          <h3>{errors.password}</h3>
         ) : (
           ""
         )}
@@ -151,7 +148,7 @@ const App = () => {
         />
         <br />
         {errors !== null && errors.phoneNumber !== "" ? (
-          <span>{errors.phoneNumber}</span>
+          <h4>{errors.phoneNumber}</h4>
         ) : (
           ""
         )}
