@@ -155,7 +155,7 @@ const App = () => {
           Signup
         </button>
       </form>
-      {user !== "" ? <p>{user}</p> : ""}
+      {user !== "" ? <p>Hello {user}</p> : ""}
     </>
   );
 };
