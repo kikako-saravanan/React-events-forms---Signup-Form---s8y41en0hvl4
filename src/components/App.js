@@ -55,7 +55,7 @@ const App = () => {
     }
     if (errors === null) {
       const inde = obj.email.indexOf("@");
-      const userName = obj.email.slice(0, inde);
+      const userName ="Hello "+ obj.email.slice(0, inde);
       setUser(userName);
     } else {
       setUser("");
@@ -152,7 +152,7 @@ const App = () => {
         <button type="submit" onClick={handleClick} data-testid="submit">
           Signup
         </button>
-  {user !== "" ? <p>Hello {user}</p> : ""}
+  {user !== "" ? <p>{user}</p> : ""}
         
 </form>
     </>
