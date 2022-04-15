@@ -2,6 +2,7 @@ import "./styles.css";
 import { signUpFormValidation } from "./validation";
 import React,{ useState } from "react";
 
+
 const App = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,13 +17,20 @@ const App = () => {
     email: email,
     password: password,
     gender: gender,
-    phoneNumber: phoneNumber,
+    phoneNumber: phoneNumber
   };
 
   const handleClick = (ev) => {
     ev.preventDefault();
     const eve = signUpFormValidation(obj);
     setErrors(eve);
+    if (errors === null) {
+      const inde = obj.email.indexOf("@");
+      const userName = "Hello " + obj.email.slice(0, inde);
+      setUser(userName);
+    } else {
+      setUser("");
+    }
   };
 
   const handleChange = (e) => {
@@ -55,7 +63,7 @@ const App = () => {
     }
     if (errors === null) {
       const inde = obj.email.indexOf("@");
-      const userName ="Hello "+ obj.email.slice(0, inde);
+      const userName = "Hello " + obj.email.slice(0, inde);
       setUser(userName);
     } else {
       setUser("");
@@ -152,9 +160,8 @@ const App = () => {
         <button type="submit" onClick={handleClick} data-testid="submit">
           Signup
         </button>
-  {user !== "" ? <p>{user}</p> : ""}
-        
-</form>
+      </form>
+      {user !== "" ? <p>{user}</p> : ""}
     </>
   );
 };
