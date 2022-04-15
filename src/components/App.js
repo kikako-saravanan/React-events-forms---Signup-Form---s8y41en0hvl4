@@ -28,6 +28,7 @@ const App = () => {
     if (eve === null) {
       const inde = obj.email.indexOf("@");
       const userName = "Hello " + obj.email.slice(0, inde);
+      setErrors(null);
       setUser(userName);
     } else {
       setUser("");
