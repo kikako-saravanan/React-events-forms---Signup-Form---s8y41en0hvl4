@@ -25,7 +25,7 @@ const App = () => {
     ev.preventDefault();
     const eve = signUpFormValidation(obj);
     setErrors(eve);
-    if (errors === null) {
+    if (eve === null) {
       const inde = obj.email.indexOf("@");
       const userName = "Hello " + obj.email.slice(0, inde);
       setUser(userName);
@@ -36,39 +36,24 @@ const App = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
+
     if (e.target.id === "name") {
       setName(e.target.value);
       obj.name = e.target.value;
-      const eve = signUpFormValidation(obj);
-      setErrors(eve);
     } else if (e.target.id === "email") {
       setEmail(e.target.value);
       obj.email = e.target.value;
-      const eve = signUpFormValidation(obj);
-      setErrors(eve);
     } else if (e.target.id === "password") {
       setPassword(e.target.value);
       obj.password = e.target.value;
-      const eve = signUpFormValidation(obj);
-      setErrors(eve);
     } else if (e.target.id === "gender") {
       setGender(e.target.value);
       obj.gender = e.target.value;
-      const eve = signUpFormValidation(obj);
-      setErrors(eve);
     } else if (e.target.id === "phoneNumber") {
       setPhoneNumber(e.target.value);
       obj.phoneNumber = e.target.value;
-      const eve = signUpFormValidation(obj);
-      setErrors(eve);
     }
-    if (errors === null) {
-      const inde = obj.email.indexOf("@");
-      const userName = "Hello " + obj.email.slice(0, inde);
-      setUser(userName);
-    } else {
-      setUser("");
-    }
+    //handleClick(e);
   };
   return (
     <>
@@ -98,7 +83,11 @@ const App = () => {
           onChange={handleChange}
         />
         <br />
-        {errors !== null && errors.email !== "" ? <h1>{errors.email}</h1> : ""}
+        {errors !== null && errors.email !== "" ? (
+          <span>{errors.email}</span>
+        ) : (
+          ""
+        )}
         <br />
         <br />
         <label htmlFor="gender">Gender: </label>
@@ -114,7 +103,7 @@ const App = () => {
         </select>
         <br />
         {errors !== null && errors.gender !== "" ? (
-          <h2>{errors.gender}</h2>
+          <span>{errors.gender}</span>
         ) : (
           ""
         )}
