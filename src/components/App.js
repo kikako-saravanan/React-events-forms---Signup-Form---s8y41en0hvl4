@@ -43,7 +43,6 @@ const App = () => {
       const eve = signUpFormValidation(obj);
       setErrors(eve);
     } else if (e.target.id === "gender") {
-      console.log(e.target.value);
       setGender(e.target.value);
       obj.gender = e.target.value;
       const eve = signUpFormValidation(obj);
@@ -54,7 +53,6 @@ const App = () => {
       const eve = signUpFormValidation(obj);
       setErrors(eve);
     }
-    console.log(errors);
     if (errors === null) {
       const inde = obj.email.indexOf("@");
       const userName = obj.email.slice(0, inde);
@@ -154,8 +152,9 @@ const App = () => {
         <button type="submit" onClick={handleClick} data-testid="submit">
           Signup
         </button>
-      </form>
-      {user !== "" ? <p>Hello {user}</p> : ""}
+  {user !== "" ? <p>Hello {user}</p> : ""}
+        
+</form>
     </>
   );
 };
