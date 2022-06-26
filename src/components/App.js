@@ -23,15 +23,14 @@ const App = () => {
   const handleClick = (ev) => {
     ev.preventDefault();
     const eve = signUpFormValidation(obj);
-    setErrors(eve);
     if (Object.keys(eve).length === 0) {
       const inde = obj.email.indexOf("@");
       const userName = "Hello " + obj.email.slice(0, inde);
       setErrors({});
-
       setUser(userName);
     } else {
       setUser("");
+      setErrors(eve);
     }
   };
 
