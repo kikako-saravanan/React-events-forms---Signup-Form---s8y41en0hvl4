@@ -27,7 +27,7 @@ const signUpFormValidation = (formData) => {
   const fields = ["email", "password", "name", "gender", "phoneNumber"];
   fields.forEach((field) => {
     if (!formData[`${field}`]) {
-      error[[field]] = `All fields are mandatory`;
+      error[field] = `All fields are mandatory`;
     }
   });
   if (formData.gender && formData.gender === "") {
