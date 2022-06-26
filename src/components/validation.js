@@ -24,7 +24,7 @@ function isAlphaNumeric(str) {
 const signUpFormValidation = (formData) => {
   //  console.log(formData);
   const error = {};
-  const fields = ["email", "password", "name", "gender", "phoneNumber"];
+  const fields = ["email", "name", "gender"];
   fields.forEach((field) => {
     if (formData[field]==="") {
       error[field] = `All fields are mandatory`;
