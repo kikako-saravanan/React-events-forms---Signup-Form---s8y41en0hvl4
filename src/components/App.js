@@ -1,8 +1,6 @@
 import "./styles.css";
 import { signUpFormValidation } from "./validation";
-import React,{ useState } from "react";
-
-
+import { useState } from "react";
 
 const App = () => {
   const [name, setName] = useState("");
@@ -12,7 +10,7 @@ const App = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [user, setUser] = useState("");
 
-  const [errors, setErrors] = useState("");
+  const [errors, setErrors] = useState({});
   const obj = {
     name: name,
     email: email,
@@ -25,10 +23,11 @@ const App = () => {
     ev.preventDefault();
     const eve = signUpFormValidation(obj);
     setErrors(eve);
-    if (eve === null) {
+    if (Object.keys(eve).length === 0) {
       const inde = obj.email.indexOf("@");
       const userName = "Hello " + obj.email.slice(0, inde);
-      setErrors(null);
+      setErrors({});
+
       setUser(userName);
     } else {
       setUser("");
@@ -68,7 +67,7 @@ const App = () => {
           onChange={handleChange}
         />
         <br />
-        {errors !== null && errors.name !== "" ? (
+        {Object.keys(errors).length !== 0 && errors.name !== "" ? (
           <span>{errors.name}</span>
         ) : (
           ""
@@ -84,7 +83,7 @@ const App = () => {
           onChange={handleChange}
         />
         <br />
-        {errors !== null && errors.email !== "" ? (
+        {Object.keys(errors).length !== 0 && errors.email !== "" ? (
           <span>{errors.email}</span>
         ) : (
           ""
@@ -103,7 +102,7 @@ const App = () => {
           <option value="other">other</option>
         </select>
         <br />
-        {errors !== null && errors.gender !== "" ? (
+        {Object.keys(errors).length !== 0 && errors.gender !== "" ? (
           <span>{errors.gender}</span>
         ) : (
           ""
@@ -121,8 +120,8 @@ const App = () => {
           onChange={handleChange}
         />
         <br />
-        {errors !== null && errors.password !== "" ? (
-          <h3>{errors.password}</h3>
+        {Object.keys(errors).length !== 0 && errors.password !== "" ? (
+          <span>{errors.password}</span>
         ) : (
           ""
         )}
@@ -137,8 +136,8 @@ const App = () => {
           data-testid="phoneNumber"
         />
         <br />
-        {errors !== null && errors.phoneNumber !== "" ? (
-          <h4>{errors.phoneNumber}</h4>
+        {Object.keys(errors).length !== 0 && errors.phoneNumber !== "" ? (
+          <span>{errors.phoneNumber}</span>
         ) : (
           ""
         )}
