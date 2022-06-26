@@ -22,11 +22,11 @@ function isAlphaNumeric(str) {
 }
 
 const signUpFormValidation = (formData) => {
-  console.log(formData);
+  //  console.log(formData);
   const error = {};
   const fields = ["email", "password", "name", "gender", "phoneNumber"];
   fields.forEach((field) => {
-    if (!formData[`${field}`]) {
+    if (!formData[field]) {
       error[field] = `All fields are mandatory`;
     }
   });
@@ -50,7 +50,7 @@ const signUpFormValidation = (formData) => {
   if (formData.email && !formData.email.includes("@")) {
     error["email"] = "Email must contain @";
   }
-  if (Object.keys(error).length === 0) return null;
+  //if (Object.keys(error).length === 0) return null;
   console.log(error);
   return error;
 };
